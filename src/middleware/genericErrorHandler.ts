@@ -1,6 +1,7 @@
 import { ErrorRequestHandler, Response } from "express"
 import { z } from "zod"
 import { BAD_REQUEST } from "../constants/http"
+import AppError from "../utils/AppError"
 
 const handleZodError = (res: Response, err: z.ZodError) => {
   const errors = err.issues.map(err => ({
@@ -14,6 +15,13 @@ const handleZodError = (res: Response, err: z.ZodError) => {
   })
 }
 
+const handleAppError = (res: Response, err: AppError) => {
+  return res.status(err.statusCode).json({
+    message: err.message,
+    errorCode: err.errorCode
+  })
+}
+
 const genericErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
   console.log('An error occured!')
   console.log(`PATH: "${req.path}"`)
@@ -22,10 +30,12 @@ const genericErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
   if (err instanceof z.ZodError) {
     handleZodError(res, err)
   }
+  else if (err instanceof AppError) {
+    handleAppError(res, err)
+  }
   else {
     res.status(500).send("Internal Server Error")
   }
-
 }
 
 export default genericErrorHandler
