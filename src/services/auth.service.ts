@@ -4,7 +4,7 @@ import VerificationCodeType from "../constants/verificationCodeTypes"
 import SessionModel from "../models/session.model"
 import UserModel from "../models/user.model"
 import VerificationCodeModel from "../models/verificationCode.model"
-import appAssert from "../utils/appAsset"
+import appAssert from "../utils/appAssert"
 import { oneYearFromNow } from "../utils/date"
 import jwt from "jsonwebtoken"
 
@@ -61,7 +61,7 @@ export const createAccount = async (data: CreateAccountParams) => {
 
   // return user & tokens
   return {
-    user,
+    user: user.omitPassword(),
     accessToken,
     refreshToken
   }
