@@ -4,8 +4,10 @@ import cors from 'cors'
 import cookieParser from 'cookie-parser'
 
 import { CLIENT_ORIGIN, NODE_ENV, PORT } from './constants/env'
-import genericErrorHandler from './middleware/genericErrorHandler'
 import { OK } from './constants/http'
+
+import genericErrorHandler from './middleware/genericErrorHandler'
+import authRoutes from './routes/auth.route'
 
 const app = express()
 
@@ -22,6 +24,8 @@ app.get('/', (req, res) => {
     status: "ok"
   })
 })
+
+app.use('/auth', authRoutes)
 
 app.use(genericErrorHandler)
 
