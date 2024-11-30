@@ -4,6 +4,8 @@ import cors from 'cors'
 import cookieParser from 'cookie-parser'
 
 import { CLIENT_ORIGIN, NODE_ENV, PORT } from './constants/env'
+import genericErrorHandler from './middleware/genericErrorHandler'
+import { OK } from './constants/http'
 
 const app = express()
 
@@ -16,10 +18,12 @@ app.use(cors({
 app.use(cookieParser())
 
 app.get('/', (req, res) => {
-  res.status(200).json({
+  res.status(OK).json({
     status: "ok"
   })
 })
+
+app.use(genericErrorHandler)
 
 app.listen(PORT, async () => {
   console.log(`[NODE_ENV=${NODE_ENV}] App listening on port ${PORT}`)
