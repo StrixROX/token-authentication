@@ -1,5 +1,8 @@
 import { z } from "zod"
 import errorBoundary from "../utils/errorBoundary"
+import { createAccount } from "../services/auth.service"
+import { CREATED } from "../constants/http"
+import { setAuthCookies } from "../utils/cookies"
 
 const registerSchema = z.object({
   email: z.string().email().min(1).max(255),
@@ -24,8 +27,10 @@ const registerHandler = errorBoundary(
     })
 
     // call service
+    const { user, accessToken, refreshToken } = await createAccount(request)
 
     // return response
+    return setAuthCookies({ res, accessToken, refreshToken }).status(CREATED).json(user)
   }
 )
 
