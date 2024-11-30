@@ -1,4 +1,7 @@
+import VerificationCodeType from "../constants/verificationCodeTypes"
 import UserModel from "../models/user.model"
+import VerificationCodeModel from "../models/verificationCode.model"
+import { oneYearFromNow } from "../utils/date"
 
 type CreateAccountParams = {
   email: string,
@@ -21,8 +24,13 @@ export const createAccount = async (data: CreateAccountParams) => {
   })
 
   // create verification code
+  const verificationCode = await VerificationCodeModel.create({
+    userId: user._id,
+    type: VerificationCodeType.EmailVerification,
+    expiresAt: oneYearFromNow()
+  })
 
-  // send email
+  // send verification email
 
   // create session in system
 
