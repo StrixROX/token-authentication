@@ -69,7 +69,7 @@ export const refreshHandler = errorBoundary(async (req, res) => {
 })
 
 export const verifyEmailHandler = errorBoundary(async (req, res) => {
-  const verificationCode = verificationCodeSchema.parse(req.params.code)
+  const verificationCode = verificationCodeSchema.parse(req.params.code)  
 
   await verifyEmail(verificationCode)
 
