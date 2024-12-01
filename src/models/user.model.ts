@@ -3,6 +3,7 @@ import bcrypt from "bcrypt"
 import { compareValue } from "../utils/bcrypt"
 
 export interface UserDocument extends mongoose.Document {
+  _id: mongoose.Types.ObjectId,
   email: string,
   password: string,
   verified: boolean,
