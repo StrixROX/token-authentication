@@ -1,8 +1,8 @@
 import errorBoundary from "../utils/errorBoundary"
-import { createAccount, loginUser, refreshUserAccessToken, verifyEmail } from "../services/auth.service"
+import { createAccount, loginUser, refreshUserAccessToken, resetPassword, sendPasswordResetEmail, verifyEmail } from "../services/auth.service"
 import { CREATED, OK, UNAUTHORIZED } from "../constants/http"
 import { clearAuthCookies, getAccessTokenCookieOptions, getRefreshTokenCookieOptions, setAuthCookies } from "../utils/cookies"
-import { loginSchema, registerSchema, verificationCodeSchema } from "./auth.schemas"
+import { emailSchema, loginSchema, registerSchema, resetPasswordSchema, verificationCodeSchema } from "./auth.schemas"
 import { verifyToken } from "../utils/jwt"
 import SessionModel from "../models/session.model"
 import appAssert from "../utils/appAssert"
@@ -75,5 +75,25 @@ export const verifyEmailHandler = errorBoundary(async (req, res) => {
 
   return res.status(OK).json({
     message: "Email was verified successfully"
+  })
+})
+
+export const sendPasswordResetHandler = errorBoundary(async (req, res) => {
+  const email = emailSchema.parse(req.body.email)
+
+  await sendPasswordResetEmail(email)
+
+  return res.status(OK).json({
+    message: "Password reset email sent"
+  })
+})
+
+export const resetPasswordHandler = errorBoundary(async (req, res) => {
+  const request = resetPasswordSchema.parse(req.body)
+
+  await resetPassword(request)
+
+  return clearAuthCookies(res).status(OK).json({
+    message: "Password reset successful"
   })
 })
