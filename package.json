@@ -1,7 +1,7 @@
 {
-  "name": "wuwaplanner-api",
+  "name": "token-authentication-api",
   "version": "1.0.0",
-  "description": "API to allow WuWaPlanner Client to interact with the database.",
+  "description": "API to allow the Client to interact with the database.",
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --files src/index.ts",
