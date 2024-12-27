@@ -4,6 +4,7 @@ import Login from "./pages/Login"
 import Register from "./pages/Register"
 import VerifyEmail from "./pages/VerifyEmail"
 import ForgotPassword from "./pages/ForgotPassword"
+import ResetPassword from "./pages/ResetPassword"
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path="/register" element={<Register />} />
       <Route path="/email/verify/:code" element={<VerifyEmail />} />
       <Route path="/password/forgot" element={<ForgotPassword />} />
+      <Route path="/password/reset" element={<ResetPassword />} />
     </Routes>
   )
 }
