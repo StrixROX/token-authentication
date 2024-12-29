@@ -6,18 +6,13 @@ import VerifyEmail from "./pages/VerifyEmail"
 import ForgotPassword from "./pages/ForgotPassword"
 import ResetPassword from "./pages/ResetPassword"
 import AppContainer from "./components/AppContainer"
-
-const Home = () => {
-  return (
-    <Box>Home</Box>
-  )
-}
+import Profile from "./pages/Profile"
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<AppContainer />}>
-        <Route index element={<Home />} />
+        <Route index element={<Profile />} />
       </Route>
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
