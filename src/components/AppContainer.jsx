@@ -1,6 +1,6 @@
 import { Box, CircularProgress } from '@mui/material'
 import useAuth from '../hooks/useAuth'
-import { Navigate, Outlet } from 'react-router-dom'
+import { Navigate, Outlet, redirect } from 'react-router-dom'
 import UserMenu from './UserMenu'
 
 function AppContainer() {
@@ -38,9 +38,6 @@ function AppContainer() {
           <Navigate
             to="/login"
             replace
-            state={{
-              redirectUrl: window.location.pathname
-            }}
           />
         )
       }
