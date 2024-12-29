@@ -1,6 +1,7 @@
 import { Box, CircularProgress } from '@mui/material'
 import useAuth from '../hooks/useAuth'
 import { Navigate, Outlet } from 'react-router-dom'
+import UserMenu from './UserMenu'
 
 function AppContainer() {
   const { user, isLoading } = useAuth()
@@ -27,7 +28,7 @@ function AppContainer() {
       {
         !isLoading && user && (
           <>
-            {/* <UserMenu /> */}
+            <UserMenu />
             <Outlet />
           </>
         )
