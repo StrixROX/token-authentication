@@ -38,6 +38,9 @@ function AppContainer() {
           <Navigate
             to="/login"
             replace
+            state={{
+              redirectUrl: window.location.pathname
+            }}
           />
         )
       }

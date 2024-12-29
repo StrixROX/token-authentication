@@ -2,17 +2,19 @@ import { Box, Button, Container, Link, Stack, TextField, Typography } from "@mui
 import { useMutation } from "@tanstack/react-query"
 import { useState } from "react"
 import { login } from "../lib/api"
-import { useNavigate } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 
 function Login() {
+  const location = useLocation()
   const navigate = useNavigate();
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const redirectUrl = location.state?.redirectUrl || "/"
 
   const { mutate: signIn, isPending, isError } = useMutation({
     mutationFn: login,
     onSuccess: () => {
-      navigate("/", { replace: true })
+      navigate(redirectUrl, { replace: true })
     }
   })
 
