@@ -1,5 +1,5 @@
 import { NOT_FOUND, OK, UNAUTHORIZED } from "../../constants/http";
-import UserModel from "../../models/user.model";
+import UserModel from "../../models/user";
 import appAssert from "../../utils/appAssert";
 import AuthenticatedRequest from "../../utils/AuthenticatedRequest";
 import errorBoundary from "../../utils/errorBoundary";

@@ -2,7 +2,7 @@ import errorBoundary from "../../utils/errorBoundary"
 import { OK } from "../../constants/http"
 import { clearAuthCookies } from "../../utils/cookies"
 import { verifyToken } from "../../utils/jwt"
-import SessionModel from "../../models/session.model"
+import SessionModel from "../../models/session"
 
 const logoutHandler = errorBoundary(async (req, res) => {
   const accessToken = req.cookies["accessToken"]

@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { NOT_FOUND, OK, UNAUTHORIZED } from "../../constants/http";
-import SessionModel from "../../models/session.model";
+import SessionModel from "../../models/session";
 import appAssert from "../../utils/appAssert";
 import errorBoundary from "../../utils/errorBoundary";
 import AuthenticatedRequest from "../../utils/AuthenticatedRequest";

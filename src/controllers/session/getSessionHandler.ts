@@ -1,5 +1,5 @@
 import { OK, UNAUTHORIZED } from "../../constants/http";
-import SessionModel from "../../models/session.model";
+import SessionModel from "../../models/session";
 import appAssert from "../../utils/appAssert";
 import AuthenticatedRequest from "../../utils/AuthenticatedRequest";
 import errorBoundary from "../../utils/errorBoundary";

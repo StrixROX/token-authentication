@@ -7,10 +7,10 @@ import { CLIENT_ORIGIN, NODE_ENV, PORT } from './constants/env'
 import { OK } from './constants/http'
 
 import genericErrorHandler from './middleware/genericErrorHandler'
-import authRoutes from './routes/auth.route'
+import authRoutes from './routes/auth'
 import authenticate from './middleware/authenticate'
-import userRoutes from './routes/user.route'
-import sessionRoutes from './routes/session.route'
+import userRoutes from './routes/user'
+import sessionRoutes from './routes/session'
 
 const app = express()
 

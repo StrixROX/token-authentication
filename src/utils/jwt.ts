@@ -1,6 +1,6 @@
 import { SignOptions, verify, VerifyOptions } from "jsonwebtoken"
-import { SessionDocument } from "../models/session.model"
-import { UserDocument } from "../models/user.model"
+import { SessionDocument } from "../models/session"
+import { UserDocument } from "../models/user"
 import jwt from 'jsonwebtoken'
 import { JWT_REFRESH_SECRET, JWT_SECRET } from "../constants/env"
 
