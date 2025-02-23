@@ -1,5 +1,5 @@
 import errorBoundary from "../../utils/errorBoundary"
-import { sendPasswordResetEmail } from "../../services/auth.service"
+import { sendPasswordResetEmail } from "../../services/auth"
 import { OK } from "../../constants/http"
 import { emailSchema } from "./schemas"
 

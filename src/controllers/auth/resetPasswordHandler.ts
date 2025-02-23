@@ -1,5 +1,5 @@
 import errorBoundary from "../../utils/errorBoundary"
-import { resetPassword } from "../../services/auth.service"
+import { resetPassword } from "../../services/auth"
 import { OK } from "../../constants/http"
 import { clearAuthCookies } from "../../utils/cookies"
 import { resetPasswordSchema } from "./schemas"

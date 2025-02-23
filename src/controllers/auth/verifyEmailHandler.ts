@@ -1,5 +1,5 @@
 import errorBoundary from "../../utils/errorBoundary"
-import { verifyEmail } from "../../services/auth.service"
+import { verifyEmail } from "../../services/auth"
 import { OK } from "../../constants/http"
 import { verificationCodeSchema } from "./schemas"
 

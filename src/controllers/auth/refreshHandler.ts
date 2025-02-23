@@ -1,5 +1,5 @@
 import errorBoundary from "../../utils/errorBoundary"
-import { refreshUserAccessToken } from "../../services/auth.service"
+import { refreshUserAccessToken } from "../../services/auth"
 import { OK, UNAUTHORIZED } from "../../constants/http"
 import { getAccessTokenCookieOptions, getRefreshTokenCookieOptions } from "../../utils/cookies"
 import appAssert from "../../utils/appAssert"

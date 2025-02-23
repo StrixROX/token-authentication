@@ -1,5 +1,5 @@
 import errorBoundary from "../../utils/errorBoundary"
-import { createAccount } from "../../services/auth.service"
+import { createAccount } from "../../services/auth"
 import { CREATED } from "../../constants/http"
 import { setAuthCookies } from "../../utils/cookies"
 import { registerSchema } from "./schemas"
