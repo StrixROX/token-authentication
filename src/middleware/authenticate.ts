@@ -1,10 +1,11 @@
-import { Request, RequestHandler } from "express";
+import { RequestHandler } from "express";
 import appAssert from "../utils/appAssert";
 import { UNAUTHORIZED } from "../constants/http";
 import AppErrorCode from "../constants/appErrorCode";
 import { verifyToken } from "../utils/jwt";
+import AuthenticatedRequest from "../utils/AuthenticatedRequest";
 
-const authenticate: RequestHandler = (req, res, next) => {
+const authenticate: RequestHandler = (req: AuthenticatedRequest, res, next) => {
   const accessToken = req.cookies.accessToken as string | undefined
   appAssert(accessToken, UNAUTHORIZED, "Not authorized", AppErrorCode.InvalidAccessToken)
 

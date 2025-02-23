@@ -1,9 +1,10 @@
 import { NOT_FOUND, OK, UNAUTHORIZED } from "../../constants/http";
 import UserModel from "../../models/user.model";
 import appAssert from "../../utils/appAssert";
+import AuthenticatedRequest from "../../utils/AuthenticatedRequest";
 import errorBoundary from "../../utils/errorBoundary";
 
-const getUserHandler = errorBoundary(async (req, res) => {
+const getUserHandler = errorBoundary(async (req: AuthenticatedRequest, res) => {
   const userId = req.userId
   appAssert(userId, UNAUTHORIZED, "Invalid user")
 

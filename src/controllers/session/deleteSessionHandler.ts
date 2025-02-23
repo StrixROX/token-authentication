@@ -3,8 +3,9 @@ import { NOT_FOUND, OK, UNAUTHORIZED } from "../../constants/http";
 import SessionModel from "../../models/session.model";
 import appAssert from "../../utils/appAssert";
 import errorBoundary from "../../utils/errorBoundary";
+import AuthenticatedRequest from "../../utils/AuthenticatedRequest";
 
-const deleteSessionHandler = errorBoundary(async (req, res) => {
+const deleteSessionHandler = errorBoundary(async (req: AuthenticatedRequest, res) => {
   const userId = req.userId
   appAssert(userId, UNAUTHORIZED, "Invalid user")
 

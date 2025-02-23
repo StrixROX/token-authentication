@@ -1,9 +1,10 @@
 import { OK, UNAUTHORIZED } from "../../constants/http";
 import SessionModel from "../../models/session.model";
 import appAssert from "../../utils/appAssert";
+import AuthenticatedRequest from "../../utils/AuthenticatedRequest";
 import errorBoundary from "../../utils/errorBoundary";
 
-const getSessionHandler = errorBoundary(async (req, res) => {
+const getSessionHandler = errorBoundary(async (req: AuthenticatedRequest, res) => {
   const userId = req.userId
   appAssert(userId, UNAUTHORIZED, "Invalid user")
 
